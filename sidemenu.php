@@ -10,14 +10,14 @@
  */
 
  // Register and load the widget
- function wpb_load_widget() {
-     register_widget( 'wpb_widget' );
+ function bro_load_widget() {
+     register_widget( 'bro_widget' );
  }
- add_action( 'widgets_init', 'wpb_load_widget' );
+ add_action( 'widgets_init', 'bro_load_widget' );
 
 
 
- class wpb_widget extends WP_Widget {
+ class bro_widget extends WP_Widget {
 
 	 public $children;
 
@@ -25,20 +25,20 @@
  parent::__construct(
 
  // Base ID of your widget
-	 'wpb_widget',
+	 'bro_widget',
 
 	 // Widget name will appear in UI
-	 __('WPBeginner Widget', 'wpb_widget_domain'),
+	 __('WPBeginner Widget', 'bro_widget_domain'),
 
 	 // Widget description
-	 array( 'description' => __( 'Sample widget based on WPBeginner Tutorial', 'wpb_widget_domain' ), )
+	 array( 'description' => __( 'Sample widget based on WPBeginner Tutorial', 'bro_widget_domain' ), )
 	 );
 
 	 		add_action( 'wp_enqueue_scripts', [ $this, 'sidemenu_enqueue_styles' ] );
 
 	 		add_action( 'wp_enqueue_scripts', [ $this, 'sidemenu_enqueue_scripts' ] );
 
-	 		add_action( 'widgets_init', [ $this, 'wpb_load_widget' ] );
+	 		add_action( 'widgets_init', [ $this, 'bro_load_widget' ] );
 
 
 			if ( file_exists( dirname( __FILE__ ) . '/cmb2/init.php' ) ) {
@@ -148,7 +148,7 @@ public function form( $instance ) {
 if ( isset( $instance[ 'title' ] ) ) {
 $title = $instance[ 'title' ];
 } else {
- $title = __( 'New title', 'wpb_widget_domain' );
+ $title = __( 'New title', 'bro_widget_domain' );
 }
  // Widget admin form
  ?>
@@ -195,4 +195,4 @@ $title = $instance[ 'title' ];
  		] );
 
  	}
- } // Class wpb_widget ends here
+ } // Class bro_widget ends here
